@@ -1,0 +1,261 @@
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    /* resete no html */
+                }
+                
+                .button-container {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                }
+                
+                .btn_gameOn {
+                    border-radius: 30px;
+                    width: 100px;
+                    height: 100px;
+                    visibility: visible;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    cursor: pointer;
+                    transition: 0.3s;
+                    background-color: #ddd;
+                }
+                
+                .btn_gameOn :hover {
+                    cursor: pointer;
+                    background-color: #3e8e41;
+                    transition: 2s;
+                }
+                
+                .game-board {
+                    width: 80%;
+                    height: 600px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    padding: 5px;
+                    margin: 0 auto;
+                    position: relative;
+                    overflow: hidden;
+                    visibility: hidden;
+                }
+                
+                .game-floor {
+                    background-color: rgb(45, 58, 45);
+                    position: absolute;
+                    bottom: 10px;
+                    height: 110px;
+                    width: 99%;
+                    overflow: initial;
+                }
+                
+                .game-background {
+                    position: absolute;
+                    bottom: 110px;
+                    height: 480px;
+                    width: 99%;
+                    overflow: initial;
+                    image-rendering: auto;
+                }
+                
+                .game-over_menssagem {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 80px;
+                    visibility: hidden;
+                }
+                
+                .game-over_fundo_img {
+                    image-rendering: auto;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                }
+                
+                .game-over_fundo {
+                    width: 99%;
+                    height: 99%;
+                    background-color: #ddd;
+                    position: absolute;
+                    visibility: hidden;
+                    bottom: 10px;
+                }
+                
+                .pontuacao {
+                    background-color: #ddd;
+                    position: absolute;
+                    width: 200px;
+                    height: 80px;
+                    border: 1px solid black;
+                    left: 90%;
+                    top: 10%;
+                    transform: translate(-50%, -50%);
+                    text-align: right;
+                    font-size: 35px;
+                }
+                
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+                
+                a:hover {
+                    color: blue;
+                }
+                
+                html {
+                    background-color: #7e7e7e;
+                }
+                
+                .header_div {
+                    margin-left: 6.5%;
+                    font-size: 30px;
+                    overflow: visible;
+                    position: relative;
+                    visibility: visible;
+                    color: rgb(255, 255, 255);
+                    text-shadow: -2px -2px 1px #000, -2px -2px 1px #000, -2px -2px 1px #000, -2px -2px 1px #000;
+                }
+                
+                .header_div h1 {
+                    margin-left: -1%;
+                }
+                
+                footer {
+                    position: relative;
+                    font-size: 20px;
+                    margin-left: 35%;
+                    color: rgb(255, 255, 255);
+                    text-shadow: -2px -2px 1px #000, -2px -2px 1px #000, -2px -2px 1px #000, -2px -2px 1px #000;
+                }
+                
+                footer p {
+                    margin-top: 5%;
+                }
+                
+                .leveis {
+                    background-color: #ddd;
+                    position: absolute;
+                    width: 200px;
+                    height: 80px;
+                    border: 1px solid black;
+                    left: 10%;
+                    top: 10%;
+                    transform: translate(-50%, -50%);
+                    text-align: right;
+                    font-size: 35px;
+                    flex: 33.33%;
+                    height: 100px;
+                    padding: 10px;
+                    margin: 5px;
+                    text-align: center;
+                }
+                
+                .enemy {
+                    position: absolute;
+                    bottom: 100px;
+                    width: 80px;
+                    /* define aonde o pipe vai */
+                    overflow: visible;
+                }
+                
+                .player {
+                    width: 150px;
+                    position: absolute;
+                    bottom: 100px;
+                }
+                
+                .pulo {
+                    animation: player-pulo 1.5s linear;
+                }
+                
+                .figure_fig {
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                    border: 1px solid black;
+                    cursor: pointer;
+                    margin-left: 20%;
+                }
+                
+                .figure_caption {
+                    position: fixed;
+                    top: 15%;
+                    left: 5%;
+                }
+                
+                .figure_figcaption {
+                    margin-left: 35%;
+                    text-align: center;
+                    text-decoration: none;
+                    color: inherit;
+                    font-size: 18px;
+                }
+                
+                .faixa {
+                    left: 7.2%;
+                    width: 15%;
+                    height: 100%;
+                    background-color: rgb(0, 0, 0);
+                    position: fixed;
+                    bottom: 10px;
+                }
+                
+                @keyframes enemy-animation {
+                    from {
+                        right: -80px;
+                    }
+                    to {
+                        right: 100%;
+                    }
+                }
+                
+                @keyframes player-pulo {
+                    0% {
+                        bottom: 100px;
+                    }
+                    10% {
+                        bottom: 140px;
+                    }
+                    20% {
+                        bottom: 180px;
+                    }
+                    30% {
+                        bottom: 220px;
+                    }
+                    40% {
+                        bottom: 260px;
+                    }
+                    40% {
+                        bottom: 280px;
+                    }
+                    50% {
+                        bottom: 320px;
+                    }
+                    55% {
+                        bottom: 280px;
+                    }
+                    60% {
+                        bottom: 260px;
+                    }
+                    70% {
+                        bottom: 220px;
+                    }
+                    80% {
+                        bottom: 180px;
+                    }
+                    90% {
+                        bottom: 140px;
+                    }
+                    95% {
+                        bottom: 135px;
+                    }
+                    100% {
+                        bottom: 100px;
+                    }
+                }
