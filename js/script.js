@@ -21,7 +21,7 @@ const level_board = document.querySelector('.leveis');
 
 const pontuacaolevel = [];
 
-pontuacaolevel[0] = 600;
+pontuacaolevel[0] = 450;
 
 
 
@@ -105,9 +105,12 @@ function game__start() {
 
                         if (pontuacao >= pontuacaolevel[0]) {
 
+                            level = level + 1;
+                            game__level(level);
 
                             aumentarNivel()
-                            level = level + 1;
+
+                            console.log(level);
                             level_board.innerHTML = "level " + level;
 
                             pontuacao = 0;
@@ -140,6 +143,7 @@ function game__start() {
 function aumentarNivel() {
 
     pontuacaolevel[0] = pontuacaolevel[0] + pontuacaolevel[0];
+
 
 
 }
