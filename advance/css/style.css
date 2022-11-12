@@ -1,0 +1,148 @@
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    /* resete no html */
+                }
+                
+                .game-board {
+                    width: 80%;
+                    height: 600px;
+                    border: 1px solid black;
+                    margin: 0 auto;
+                    position: relative;
+                    overflow: hidden;
+                    margin-top: 5%;
+                }
+                
+                .game-floor {
+                    background-color: green;
+                    position: absolute;
+                    bottom: 0;
+                    height: 110px;
+                    width: 100%;
+                    overflow: initial;
+                }
+                
+                .game-background {
+                    position: absolute;
+                    bottom: 110px;
+                    height: 500px;
+                    width: 100%;
+                    overflow: initial;
+                }
+                
+                .game-over {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 80px;
+                    visibility: hidden;
+                }
+                
+                .pontuacao {
+                    position: absolute;
+                    width: 200px;
+                    height: 80px;
+                    border: 1px solid black;
+                    left: 90%;
+                    top: 10%;
+                    transform: translate(-50%, -50%);
+                    text-align: right;
+                    font-size: 35px;
+                }
+                
+                .vidas {
+                    position: absolute;
+                    width: 200px;
+                    height: 80px;
+                    border: 1px solid black;
+                    left: 10%;
+                    top: 10%;
+                    transform: translate(-50%, -50%);
+                    text-align: right;
+                    font-size: 35px;
+                    display: flex;
+                }
+                
+                .vidas div {
+                    flex: 33.33%;
+                    height: 100px;
+                    padding: 10px;
+                    margin: 5px;
+                    text-align: center;
+                }
+                
+                .enemy {
+                    position: absolute;
+                    bottom: 100px;
+                    width: 80px;
+                    /* define aonde o pipe vai */
+                    animation: enemy-animation 3s linear infinite;
+                    overflow: visible;
+                }
+                
+                .player {
+                    width: 150px;
+                    position: absolute;
+                    bottom: 100px;
+                }
+                
+                .pulo {
+                    animation: player-pulo 1.5s linear;
+                }
+                
+                @keyframes enemy-animation {
+                    from {
+                        right: -80px;
+                    }
+                    to {
+                        right: 100%;
+                    }
+                }
+                
+                @keyframes player-pulo {
+                    0% {
+                        bottom: 100px;
+                    }
+                    10% {
+                        bottom: 140px;
+                    }
+                    20% {
+                        bottom: 180px;
+                    }
+                    30% {
+                        bottom: 220px;
+                    }
+                    40% {
+                        bottom: 260px;
+                    }
+                    40% {
+                        bottom: 280px;
+                    }
+                    50% {
+                        bottom: 320px;
+                    }
+                    55% {
+                        bottom: 280px;
+                    }
+                    60% {
+                        bottom: 260px;
+                    }
+                    70% {
+                        bottom: 220px;
+                    }
+                    80% {
+                        bottom: 180px;
+                    }
+                    90% {
+                        bottom: 140px;
+                    }
+                    95% {
+                        bottom: 135px;
+                    }
+                    100% {
+                        bottom: 100px;
+                    }
+                }
