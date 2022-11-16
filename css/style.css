@@ -4,7 +4,6 @@
                     box-sizing: border-box;
                     zoom: 95%
                     /* resete no html */
-                  
                 }
                 
                 .button-container {
@@ -13,11 +12,15 @@
                     left: 50%;
                 }
                 
-                .btn_gameOn {
+                .btn_StartNewGame {
+                    visibility: hidden;
+                }
+                
+                .btn_gameOn,
+                .btn_StartNewGame {
                     border-radius: 30px;
                     width: 100px;
                     height: 100px;
-                    visibility: visible;
                     position: absolute;
                     top: 50%;
                     left: 50%;
@@ -27,7 +30,8 @@
                     background-color: #ddd;
                 }
                 
-                .btn_gameOn :hover {
+                .btn_gameOn:hover,
+                .btn_StartNewGame :hover {
                     cursor: pointer;
                     background-color: #3e8e41;
                     transition: 2s;
@@ -115,7 +119,7 @@
                 }
                 
                 .header_div {
-                    margin-left: 7.5%;
+                    margin-left: 7.8%;
                     font-size: 30px;
                     overflow: visible;
                     position: relative;
@@ -162,7 +166,6 @@
                     position: absolute;
                     bottom: 100px;
                     width: 80px;
-                    /* define aonde o pipe vai */
                     overflow: visible;
                 }
                 

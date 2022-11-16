@@ -1,6 +1,3 @@
-const player = document.querySelector('.player');
-const enemy = document.querySelector('.enemy');
-
 const gameConfig = {
 
     game__board: document.querySelector('.game-board'),
@@ -11,7 +8,9 @@ const gameConfig = {
     gameOver_fundo: document.querySelector('.game-over_fundo'),
     gameOver_imgfundo: document.querySelector('.game-over_fundo_img'),
     btn_gameOn: document.querySelector('.btn_gameOn'),
+    btn_StartNewGame: document.querySelector('.btn_StartNewGame'),
     figure_caption: document.querySelector('.figure_caption'),
+    game_level: 1,
 };
 
 
@@ -21,119 +20,132 @@ const level_board = document.querySelector('.leveis');
 
 const pontuacaolevel = [];
 
-pontuacaolevel[0] = 450;
+pontuacaolevel[1] = 500;
 
+var pontuacao = 0;
+var game_level = 1;
 
 
 
 enemy.style.animation = 'none';
 
 function game__start() {
+    gameConfig.btn_gameOn.style.visibility = "hidden";
 
 
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
-    }
+    var animation = 3;
 
+    setTimeout(() => {
 
+        enemy.style.animation = 'enemy-animation 3s linear infinite';
+        gameConfig.game__board.style.visibility = 'visible';
+        game__level(level);
 
-
-    var death_value = getRandomInt(5);
-    console.log(death_value)
-
-    enemy.style.animation = 'enemy-animation 3s linear infinite';
-    const gameOn = 1;
-    var pontuacao = 0;
-
-
-
-
-
-    const jump = () => {
-
-        gameConfig.player.classList.add('pulo');
-
-
-        setTimeout(() => {
-
-            gameConfig.player.classList.remove('pulo');
-
-        }, 500)
-
-
-
-    }
-    if (gameOn == 1) {
-
-
-        const loop = setInterval(() => {
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
 
 
 
 
-                const enemyPosition = enemy.offsetLeft;
-                const playerPosition = +window.getComputedStyle(gameConfig.player).bottom.replace('px', '');
-
-                if (enemyPosition <= 82 && enemyPosition > 0 && playerPosition < 108) {
-
-                    enemy.style.animation = 'none';
-                    enemy.style.left = `${enemyPosition}px`;
+        var death_value = getRandomInt(5);
+        console.log(death_value)
 
 
-                    GameOver.style.visibility = 'visible';
-                    gameConfig.gameOver_fundo.style.visibility = 'visible';
-                    level_board.style.visibility = 'hidden';
-                    gameOn === 0;
-
-
-                    clearInterval(loop)
-
-
-                    gameConfig.gameOver_imgfundo.src = `https://github.com/ViniciusF-Pereira/Advance/blob/main/imgs/deaths/death${death_value}.gif?raw=true`;
+        const gameOn = 1;
 
 
 
 
+        const jump = () => {
 
-                } else if (gameOn == 1) {
-
-                    if (enemyPosition <= 82 && enemyPosition > 0 && playerPosition > 108) {
+            gameConfig.player.classList.add('pulo');
 
 
-                        pontuacao = pontuacao + 1;
-                        pontuacaoPlacar.innerHTML = "" + pontuacao;
+            setTimeout(() => {
 
-                        if (pontuacao >= pontuacaolevel[0]) {
+                gameConfig.player.classList.remove('pulo');
 
-                            level = level + 1;
-                            game__level(level);
+            }, 500)
 
-                            aumentarNivel()
 
-                            console.log(level);
-                            level_board.innerHTML = "level " + level;
 
-                            pontuacao = 0;
+        }
+        if (gameOn == 1) {
+
+
+            const loop = setInterval(() => {
+
+
+
+
+                    const enemyPosition = enemy.offsetLeft;
+                    const playerPosition = +window.getComputedStyle(gameConfig.player).bottom.replace('px', '');
+
+                    if (enemyPosition <= 82 && enemyPosition > 0 && playerPosition < 108) {
+
+                        enemy.style.animation = 'none';
+                        enemy.style.left = `${enemyPosition}px`;
+
+
+                        GameOver.style.visibility = 'visible';
+                        gameConfig.gameOver_fundo.style.visibility = 'visible';
+                        level_board.style.visibility = 'hidden';
+                        gameOn === 0;
+
+
+                        clearInterval(loop)
+
+
+                        gameConfig.gameOver_imgfundo.src = `https://github.com/ViniciusF-Pereira/Advance/blob/main/imgs/deaths/death${death_value}.gif?raw=true`;
+
+
+                        setTimeout(() => { gameConfig.btn_StartNewGame.style.visibility = "visible"; }, 3800)
+
+
+
+                    } else if (gameOn == 1) {
+
+                        if (enemyPosition <= 82 && enemyPosition > 0 && playerPosition > 108) {
+
+
+                            pontuacao = pontuacao + 1;
+                            pontuacaoPlacar.innerHTML = "" + pontuacao;
+
+                            if (pontuacao >= pontuacaolevel[game_level]) {
+
+
+
+                                aumentarNivel(game_level);
+                                game__level(game_level);
+
+                                console.log(game_level);
+
+                                level_board.innerHTML = "level " + game_level;
+
+                                pontuacao = 0;
+
+                            }
+
 
                         }
 
-
                     }
 
-                }
+
+
+                },
+                3)
+        }
+
+        document.addEventListener('keydown', jump);
 
 
 
-            },
-            2)
-    }
 
-    document.addEventListener('keydown', jump);
+        level_board.innerHTML = "level " + game_level;
+    }, 1800)
 
-
-    var level = 1;
-
-    level_board.innerHTML = "level " + level;
 
 
 }
@@ -142,7 +154,19 @@ function game__start() {
 
 function aumentarNivel() {
 
-    pontuacaolevel[0] = pontuacaolevel[0] + pontuacaolevel[0];
+
+
+
+    game_level = game_level + 1;
+
+    pontuacaolevel[game_level] = pontuacaolevel[game_level - 1] + pontuacaolevel[1];
+
+    animation = 3;
+
+    animation_time = animation - 0.2;
+
+
+    enemy.style.animation = `enemy-animation ${animation_time}s linear infinite`;
 
 
 
@@ -162,11 +186,15 @@ function game__level(level) {
 gameConfig.btn_gameOn.addEventListener("click", myFunction);
 
 function myFunction() {
-    game__start();
     level = 1;
-    game__level(level);
-
     gameConfig.figure_caption.style.visibility = "hidden";
-    gameConfig.btn_gameOn.style.visibility = "hidden";
-    gameConfig.game__board.style.visibility = 'visible';
+
+    game__start();
+
+
+}
+
+function game__StartNewGame() {
+    window.location.reload()
+
 }
