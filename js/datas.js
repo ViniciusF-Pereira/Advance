@@ -1,11 +1,12 @@
 const __game_config = {
+
     // aqui eu configuro umas informações de jogo.
     menu_inicial: document.querySelector('.menu_inicial_config'),
     game__board: document.querySelector('.game-board'),
     personagens: document.querySelector('.seleciona_personagen'),
-    player: document.querySelector('.bloco2'),
+    player: document.querySelector('._persona'),
     btn_gameOn: document.querySelector('.btn_gameOn'),
-    moedas: document.querySelector('.bloco4'),
+    moedas: document.querySelector('._moedas'),
 
 
 }
@@ -48,8 +49,12 @@ function selecionar_personagem() {
 
 function teste(i) {
 
-    localStorage.setItem("personagem", parseInt(i));
-    console.log(localStorage.getItem("personagem"));
+    if (localStorage.getItem("personagem") != "") {
+        localStorage.setItem("personagem", parseInt(i));
+        console.log(localStorage.getItem("personagem"));
+    } else {
+        localStorage.setItem("personagem", 1)
+    }
     __game_config.personagens.style.visibility = 'hidden';
     __game_config.menu_inicial.style.visibility = 'visible';
 

@@ -44,9 +44,11 @@ function game__start() {
 
 
 
+
     setTimeout(() => {
 
         gameConfig.game_board__start.style.visibility = 'visible';
+
 
         enemy.style.animation = 'enemy-animation 3s linear infinite';
 
@@ -96,7 +98,7 @@ function game__start() {
                     if (enemyPosition <= 82 && enemyPosition > 0 && playerPosition < 108) {
 
                         enemy.style.animation = 'none';
-                        enemy.style.left = `${enemyPosition}px`;
+
 
 
                         GameOver.style.visibility = 'visible';
@@ -109,7 +111,7 @@ function game__start() {
 
 
                         gameConfig.gameOver_imgfundo.src = `https://github.com/ViniciusF-Pereira/Advance/blob/main/imgs/deaths/death${death_value}.gif?raw=true`;
-
+                        pontuacao = 0;
 
                         setTimeout(() => {
                             GameOver.style.visibility = 'hidden';
