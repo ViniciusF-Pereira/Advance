@@ -31,6 +31,12 @@
         height: 60%;
     }
     
+    .menu_inicial_config {
+        background-color: blanchedalmond;
+        width: 100%;
+        height: 100%;
+    }
+    
     .bloco1,
     .bloco2,
     .bloco3,

@@ -37,15 +37,18 @@
                     transition: 2s;
                 }
                 
-                .game-board,
-                .game-board-start {
+                .game-board {
                     width: 80%;
-                    height: 60%;
+                    height: 600px;
                     border: 1px solid #ddd;
                     border-radius: 4px;
                     margin: 0 auto;
                     position: relative;
                     overflow: hidden;
+                    visibility: hidden;
+                }
+                
+                .game-board-start {
                     visibility: hidden;
                 }
                 
