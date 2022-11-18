@@ -68,7 +68,8 @@ function game__inicial____configure() {
     if (localStorage.getItem("moedas")) {
         __game_config.moedas.innerHTML = localStorage.getItem('moedas');
     } else {
-        __game_config.moedas.innerHTML = 0;
+        localStorage.setItem("moedas", 1)
+        __game_config.moedas.innerHTML = localStorage.getItem('moedas');
     }
     __game_config.btn_gameOn.style.visibility = 'hidden';
     setInterval(() => {
