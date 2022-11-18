@@ -1,5 +1,5 @@
 const gameConfig = {
-
+    // aqui eu configuro umas informações de jogo.
     game__board: document.querySelector('.game-board'),
     player: document.querySelector('.player'),
     enemy: document.querySelector('.enemy'),
@@ -25,19 +25,15 @@ pontuacaolevel[1] = 500;
 var pontuacao = 0;
 var game_level = 1;
 
-
-
 enemy.style.animation = 'none';
 
 function game__start() {
-    gameConfig.btn_gameOn.style.visibility = "hidden";
-
 
     var animation = 3;
 
     setTimeout(() => {
 
-        enemy.style.animation = 'enemy-animation 3s linear infinite';
+        enemy.style.animation = `enemy-animation ${animation}s linear infinite`;
         gameConfig.game__board.style.visibility = 'visible';
         game__level(level);
 
@@ -150,8 +146,6 @@ function game__start() {
 
 }
 
-
-
 function aumentarNivel() {
 
 
@@ -161,12 +155,11 @@ function aumentarNivel() {
 
     pontuacaolevel[game_level] = pontuacaolevel[game_level - 1] + pontuacaolevel[1];
 
-    animation = 3;
 
-    animation_time = animation - 0.2;
+    animation = animation - 0.2;
 
 
-    enemy.style.animation = `enemy-animation ${animation_time}s linear infinite`;
+    enemy.style.animation = `enemy-animation ${animation}s linear infinite`;
 
 
 
@@ -175,26 +168,41 @@ function aumentarNivel() {
 
 function game__level(level) {
 
-
-
     gameConfig.player.src = `https://github.com/ViniciusF-Pereira/Advance/blob/main/imgs/level${level}/player.gif?raw=true`;
     gameConfig.enemy.src = `https://github.com/ViniciusF-Pereira/Advance/blob/main/imgs/level${level}/enemy.png?raw=true`;
     gameConfig.gamebackground.src = `https://github.com/ViniciusF-Pereira/Advance/blob/main/imgs/level${level}/background.gif?raw=true`;
 
 }
 
-gameConfig.btn_gameOn.addEventListener("click", myFunction);
+
 
 function myFunction() {
-    level = 1;
-    gameConfig.figure_caption.style.visibility = "hidden";
 
-    game__start();
+    document.querySelector('.btn_gameOn').style.visibility = "hidden";
+
+    setTimeout(() => {
+
+        level = 1;
+        gameConfig.figure_caption.style.visibility = "hidden";
+
+        game__inicial____configure();
 
 
+    }, 0);
 }
+myFunction();
 
 function game__StartNewGame() {
     window.location.reload()
+
+}
+
+
+
+function game__inicial____configure() {
+
+
+    gameConfig.game__board.style.visibility = 'visible';
+    gameConfig.game__board.style.background = " url(https://cdn.leroymerlin.com.br/products/tijolo_comum_vermelho_8,7x4,3x18,6cm_bauth_85831844_abf9_600x600.jpeg)";
 
 }

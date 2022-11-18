@@ -37,12 +37,12 @@
                     transition: 2s;
                 }
                 
-                .game-board {
+                .game-board,
+                .game-board-start {
                     width: 80%;
-                    height: 600px;
+                    height: 60%;
                     border: 1px solid #ddd;
                     border-radius: 4px;
-                    padding: 5px;
                     margin: 0 auto;
                     position: relative;
                     overflow: hidden;
