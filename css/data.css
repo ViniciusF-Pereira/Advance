@@ -37,35 +37,36 @@
         height: 100%;
     }
     
-    .bloco1,
-    .bloco2,
-    .bloco3,
-    .bloco4 {
+    .btn_persona,
+    ._persona,
+    .btn_jogar,
+    .seleciona_personagen {
         position: absolute;
     }
     
-    .bloco1 {
+    .btn_persona {
         width: 28%;
-        height: 10%;
+        height: 20%;
         background-color: brown;
         font-size: 40px;
+        border-radius: 39%;
     }
     
-    .bloco1 {
+    .btn_persona {
         left: 70%;
         top: 17%;
         text-align: center;
         padding-top: .5%;
     }
     
-    .bloco2 {
+    ._persona {
         height: 58vh;
         width: 33.3333%;
         left: 33.3333%;
         top: 10%;
     }
     
-    .bloco3 {
+    .btn_jogar {
         left: 33.3333%;
         top: 76%;
         text-align: center;
@@ -76,8 +77,11 @@
         font-size: 40px;
     }
     
-    .bloco4 {
+    ._moedas {
         width: 30%;
-        height: 10%;
+        height: 30%;
         background-color: aqua;
+        font-size: 40px;
+        text-align: right;
+        margin: .1%;
     }
