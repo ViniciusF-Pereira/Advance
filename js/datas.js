@@ -49,7 +49,7 @@ function selecionar_personagem() {
 
 function teste(i) {
 
-    if (localStorage.getItem("personagem") != "") {
+    if (localStorage.getItem("personagem") != NaN) {
         localStorage.setItem("personagem", parseInt(i));
         console.log(localStorage.getItem("personagem"));
     } else {
@@ -66,7 +66,11 @@ function game__inicial____configure() {
 
     __game_config.btn_gameOn.style.visibility = 'hidden';
     setInterval(() => {
-        __game_config.moedas.innerHTML = localStorage.getItem('moedas');
+        if (localStorage.getItem("moedas") != NaN) {
+            __game_config.moedas.innerHTML = 0;
+        } else {
+            __game_config.moedas.innerHTML = localStorage.getItem('moedas');
+        };
     }, 1000);
 
     setTimeout(() => {
