@@ -21,7 +21,7 @@ personagens[0] = `https://github.com/ViniciusF-Pereira/Advance/blob/main/imgs/pe
 personagens[1] = `https://github.com/ViniciusF-Pereira/Advance/blob/main/imgs/personagens/persona1.gif?raw=true`
 personagens[2] = `https://github.com/ViniciusF-Pereira/Advance/blob/main/imgs/personagens/persona2.gif?raw=true`
 
-var personagens_nome = ["sapo", "SAPO", "default"]
+var personagens_nome = ["PATO", "SAPO", "PORCO"]
 const __personagens = {
 
     div: document.querySelector('.seleciona_personagen'),

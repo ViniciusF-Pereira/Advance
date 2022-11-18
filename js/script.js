@@ -19,7 +19,7 @@ const gameConfig = {
 const pontuacaoPlacar = document.querySelector('.pontuacao');
 const GameOver = document.querySelector('.game-over_menssagem');
 const level_board = document.querySelector('.leveis');
-
+const gameOn = 1;
 const pontuacaolevel = [];
 
 pontuacaolevel[1] = 500;
@@ -37,8 +37,8 @@ enemy.style.animation = 'none';
 function game__start() {
     gameConfig.btn_gameOn.style.visibility = "hidden";
     gameConfig.menu_inicial_config.style.visibility = 'hidden';
-
-
+    pontuacao = 0;
+    level = 1;
 
 
 
@@ -48,7 +48,8 @@ function game__start() {
     setTimeout(() => {
 
         gameConfig.game_board__start.style.visibility = 'visible';
-
+        pontuacaoPlacar.style.visibility = 'visible';
+        level_board.style.visibility = 'visible';
 
         enemy.style.animation = 'enemy-animation 3s linear infinite';
 
@@ -64,8 +65,8 @@ function game__start() {
         var death_value = getRandomInt(5);
         console.log(death_value)
 
+        gameOn == 1
 
-        const gameOn = 1;
 
 
 
@@ -89,16 +90,19 @@ function game__start() {
 
             const loop = setInterval(() => {
 
-
+                    console.log(pontuacao);
 
 
                     const enemyPosition = enemy.offsetLeft;
                     const playerPosition = +window.getComputedStyle(gameConfig.player).bottom.replace('px', '');
 
-                    if (enemyPosition <= 82 && enemyPosition > 0 && playerPosition < 108) {
+                    console.log("PLayer position: " + playerPosition)
+                        // console.log("Enemy position: " + enemyPosition)
+                    if (enemyPosition <= 82 && enemyPosition > 25 && playerPosition < 108) {
 
                         enemy.style.animation = 'none';
-
+                        pontuacaoPlacar.style.visibility = 'hidden';
+                        level_board.style.visibility = 'hidden';
 
 
                         GameOver.style.visibility = 'visible';
@@ -121,13 +125,14 @@ function game__start() {
                             gameConfig.menu_inicial_config.style.visibility = 'visible';
 
 
+
                         }, 3800)
 
 
 
                     } else if (gameOn == 1) {
 
-                        if (enemyPosition <= 82 && enemyPosition > 0 && playerPosition > 108) {
+                        if (enemyPosition <= 45 && playerPosition > 102) {
 
 
                             pontuacao = pontuacao + 1;
@@ -167,8 +172,7 @@ function game__start() {
 
         document.addEventListener('keydown', jump);
 
-
-
+        document.addEventListener("touchstart", jump);
 
         level_board.innerHTML = "level " + game_level;
     }, 400)
