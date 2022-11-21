@@ -50,11 +50,20 @@ function selecionar_personagem() {
 function teste(i) {
 
 
-    if (localStorage.getItem("personagem")) {
+    Section_ID = localStorage.getItem(`personagem`)
+
+    if (isNaN(localStorage.getItem(`personagem`)) || localStorage.getItem(`personagem`) == null) {
+
         localStorage.setItem("personagem", parseInt(i));
-        console.log(localStorage.getItem("personagem"));
+        console.log(localStorage.getItem("personagem"))
+        // console.log(" e null");
+        // console.log(localStorage.getItem(`Section_ID`));
     } else {
         localStorage.setItem("personagem", 1)
+
+        // console.log(" nao e null");
+        // console.log(localStorage.getItem(`Section_ID`));
+  
     }
     __game_config.personagens.style.visibility = 'hidden';
     __game_config.menu_inicial.style.visibility = 'visible';
