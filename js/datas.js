@@ -92,3 +92,6 @@ function game__inicial____configure() {
         __game_config.player.src = `https://github.com/ViniciusF-Pereira/Advance/blob/main/imgs/personagens/persona${localStorage.getItem("personagem")}.gif?raw=true`
     }, 2000);
 }
+
+
+teste();
