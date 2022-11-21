@@ -94,4 +94,3 @@ function game__inicial____configure() {
 }
 
 
-teste();
